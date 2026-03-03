@@ -1,0 +1,4 @@
+name: SCKitPvP
+version: '1.0-SNAPSHOT'
+main: br.com.caiomoizes.scKitPvP.SCKitPvP
+api-version: '1.21'

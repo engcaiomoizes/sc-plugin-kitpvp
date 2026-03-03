@@ -1,6 +1,6 @@
 package br.com.caiomoizes.scKitPvP;
 
-import br.com.caiomoizes.scKitPvP.listeners.SoupEvent;import net.kyori.adventure.text.Component;import net.kyori.adventure.text.format.NamedTextColor;import org.bukkit.Bukkit;import org.bukkit.plugin.PluginManager;import org.bukkit.plugin.java.JavaPlugin;
+import br.com.caiomoizes.scKitPvP.events.SoupListener;import net.kyori.adventure.text.Component;import net.kyori.adventure.text.format.NamedTextColor;import org.bukkit.Bukkit;import org.bukkit.plugin.PluginManager;import org.bukkit.plugin.java.JavaPlugin;
 
 public final class SCKitPvP extends JavaPlugin {
 
@@ -25,7 +25,7 @@ public final class SCKitPvP extends JavaPlugin {
         saveDefaultConfig();
 
         PluginManager pm = Bukkit.getPluginManager();
-        pm.registerEvents(new SoupEvent(), this);
+        pm.registerEvents(new SoupListener(), this);
     }
 
     @Override

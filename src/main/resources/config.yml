@@ -10,7 +10,7 @@ kitpvp:
       ability:
         cooldown: 30
         duration: 5
-      display-item: SKULL_ITEM
+      display-item: BOW
       permission:
         name: kitpvp.kit.archer
         default: true
@@ -18,7 +18,13 @@ kitpvp:
         - "&7Estilo: &aOfensivo"
         - ""
         - "&7Mestre do combate de longo alcance."
-      effects: []
+      effects:
+        - type: SPEED
+          amplifier: 0
+          duration: 999999
+        - type: RESISTANCE
+          amplifier: 0
+          duration: 999999
       items:
         - material: STONE_SWORD
           name: "&aArcher's Sword"
@@ -49,7 +55,7 @@ kitpvp:
           slot: 8
       armor:
         helmet:
-          material: SKULL_ITEM
+          material: PLAYER_HEAD
           base64: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTMwMzIyZDM1NjgzMjI4ZjMwZmJjYThjZDFjMmE2MDIwODczMDE1MTZmNmI0MzhiNDhkNjc2ZWU1NTIwNzU3MCJ9fX0=
           name: "&fArcher's Head"
           lore: []
@@ -73,3 +79,74 @@ kitpvp:
           lore: []
           unbreakable: true
           hide-info: true
+    stomper:
+      enabled: true
+      cost: 0
+      ability:
+        cooldown: 15
+        duration: 0    # Stomper não tem duração de efeito, é um dano instantâneo
+      display-item: IRON_BOOTS
+      permission:
+        name: kitpvp.kit.stomper
+        default: false
+      lore:
+        - "&7Estilo: &cEsmagador"
+        - ""
+        - "&7Pule de lugares altos e"
+        - "&7esmague seus inimigos!"
+      effects:
+        - type: RESISTANCE
+          amplifier: 0
+          duration: 999999
+      items:
+        - material: IRON_SWORD
+          name: "&fStomper's Sword"
+          lore: [ ]
+          unbreakable: true
+          hide-info: true
+      armor:
+        helmet:
+          material: IRON_HELMET
+          name: "&fStomper's Helmet"
+          lore: [ ]
+          unbreakable: true
+          hide-info: true
+        chestplate:
+          material: IRON_CHESTPLATE
+          name: "&fStomper's Chestplate"
+          lore: [ ]
+          unbreakable: true
+          hide-info: true
+        leggings:
+          material: IRON_LEGGINGS
+          name: "&fStomper's Leggings"
+          lore: [ ]
+          unbreakable: true
+          hide-info: true
+        boots:
+          material: IRON_BOOTS
+          name: "&fStomper's Boots"
+          lore: [ ]
+          unbreakable: true
+          hide-info: true
+
+  # ----------------------------------
+  # Arenas Settings
+  # ----------------------------------
+  arenas:
+    principal:
+      display-name: "&6&lArena Principal"
+      icon: GRASS_BLOCK
+      permission: ""
+      lore:
+        - "&7A arena clássica para"
+        - "&7combates de KitPvP."
+        - ""
+        - "&eClique para entrar!"
+      spawn:
+        world: "world"
+        x: 10.5
+        y: 64.0
+        z: 10.5
+        yaw: 0.0
+        pitch: 0.0

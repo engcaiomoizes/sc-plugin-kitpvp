@@ -2,8 +2,10 @@ package br.com.caiomoizes.scKitPvP.kits;
 
 import br.com.caiomoizes.scKitPvP.SCKitPvP;
 import org.bukkit.Material;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
+import java.util.List;
 import java.util.Locale;
 
 public interface Kit {
@@ -23,14 +25,9 @@ public interface Kit {
         return "kitpvp.kits." + getName().toLowerCase(Locale.ROOT);
     }
 
-    default ItemStack getDisplayItem() {
-        String kitName = getName();
-        String configPath = getConfigPath();
-        String itemName = getPlugin().getConfig().getString(configPath + ".display-item");
-        Material material = Material.getMaterial(itemName);
+    ItemStack getIcon();
 
-        if (material == null) {
+    List<ItemStack> getItems();
 
-        }
-    }
+    void apply(Player p);
 }

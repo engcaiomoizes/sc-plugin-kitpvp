@@ -1,0 +1,75 @@
+kitpvp:
+
+  # ----------------------------------
+  # Kits Settings
+  # ----------------------------------
+  kits:
+    archer:
+      enabled: true
+      cost: 0
+      ability:
+        cooldown: 30
+        duration: 5
+      display-item: SKULL_ITEM
+      permission:
+        name: kitpvp.kit.archer
+        default: true
+      lore:
+        - "&7Estilo: &aOfensivo"
+        - ""
+        - "&7Mestre do combate de longo alcance."
+      effects: []
+      items:
+        - material: STONE_SWORD
+          name: "&aArcher's Sword"
+          lore:
+            - ""
+            - ""
+          unbreakable: true
+          hide-info: true
+        - material: BOW
+          name: "&aArcher's Bow"
+          lore:
+            - ""
+            - ""
+          unbreakable: true
+          hide-info: true
+        - material: FEATHER
+          name: "&aSpeed Boost &7(Right Click)"
+          lore:
+            - "&7Obtém um speed boost temporário."
+          unbreakable: true
+          hide-info: true
+          amount: 1
+          slot: 2
+        - material: ARROW
+          unbreakable: true
+          hide-info: true
+          amount: 32
+          slot: 8
+      armor:
+        helmet:
+          material: SKULL_ITEM
+          base64: eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYTMwMzIyZDM1NjgzMjI4ZjMwZmJjYThjZDFjMmE2MDIwODczMDE1MTZmNmI0MzhiNDhkNjc2ZWU1NTIwNzU3MCJ9fX0=
+          name: "&fArcher's Head"
+          lore: []
+          unbreakable: true
+          hide-info: true
+        chestplate:
+          material: LEATHER_CHESTPLATE
+          name: "&fArcher's Chestplate"
+          lore: []
+          unbreakable: true
+          hide-info: true
+        leggings:
+          material: LEATHER_LEGGINGS
+          name: "&fArcher's Leggings"
+          lore: []
+          unbreakable: true
+          hide-info: true
+        boots:
+          material: LEATHER_BOOTS
+          name: "&fArcher's Boots"
+          lore: []
+          unbreakable: true
+          hide-info: true

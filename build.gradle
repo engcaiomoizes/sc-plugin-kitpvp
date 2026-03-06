@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id("xyz.jpenilla.run-paper") version "2.3.1"
     id("com.gradleup.shadow") version "8.3.10"
+    id 'org.jetbrains.kotlin.jvm'
 }
 
 group = 'br.com.caiomoizes'
@@ -20,6 +21,7 @@ repositories {
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
     compileOnly('com.github.decentsoftware-eu.decentholograms:decentholograms:2.9.9')
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
 }
 
 tasks {
@@ -34,8 +36,6 @@ tasks {
 def targetJavaVersion = 21
 java {
     def javaVersion = JavaVersion.toVersion(targetJavaVersion)
-    sourceCompatibility = javaVersion
-    targetCompatibility = javaVersion
     if (JavaVersion.current() < javaVersion) {
         toolchain.languageVersion = JavaLanguageVersion.of(targetJavaVersion)
     }
@@ -56,4 +56,7 @@ processResources {
     filesMatching('paper-plugin.yml') {
         expand props
     }
+}
+kotlin {
+    jvmToolchain(21)
 }

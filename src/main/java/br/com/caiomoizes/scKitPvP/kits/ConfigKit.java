@@ -3,6 +3,7 @@ package br.com.caiomoizes.scKitPvP.kits;
 import br.com.caiomoizes.scKitPvP.SCKitPvP;
 import br.com.caiomoizes.scKitPvP.player.PlayerData;
 import br.com.caiomoizes.scKitPvP.player.PlayerDataManager;
+import br.com.caiomoizes.scKitPvP.utils.ItemUtil;
 import com.destroystokyo.paper.profile.PlayerProfile;
 import com.destroystokyo.paper.profile.ProfileProperty;
 import net.kyori.adventure.text.Component;
@@ -148,14 +149,7 @@ public class ConfigKit implements Kit {
 //        applyPotionEffects(p);
 
         // 6. Preencher espaços vazios com sopas
-        ItemStack soup = new ItemStack(Material.MUSHROOM_STEW);
-
-        for (int i = 0; i < 36; i++) {
-            ItemStack currentSlot = p.getInventory().getItem(i);
-
-            if (currentSlot == null || currentSlot.getType() == Material.AIR)
-                p.getInventory().setItem(i, soup);
-        }
+        ItemUtil.fillInventoryWithSoup(p);
 
         p.sendMessage(LegacyComponentSerializer.legacyAmpersand()
                 .deserialize("&aVocê selecionou o kit &l" + name.toUpperCase()));

@@ -59,7 +59,12 @@ public class ArenaSelector implements InventoryHolder {
             if (i >= slots.length) break;
 
             Arena arena = allArenas.get(i);
-            inventory.setItem(slots[i], new ItemStack(arena.getIcon()));
+            Material icon;
+            if (arena.getIcon() == null)
+                icon = Material.PAPER;
+            else
+                icon = arena.getIcon();
+            inventory.setItem(slots[i], new ItemStack(icon));
         }
 
         inventory.setItem(49, createNavigationItem(Material.BARRIER, "&cFechar Menu"));

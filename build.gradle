@@ -13,10 +13,13 @@ repositories {
         name = "papermc-repo"
         url = "https://repo.papermc.io/repository/maven-public/"
     }
+    maven { url 'https://jitpack.io' }
+    maven { url 'https://repo.codemc.io/repository/maven-public/' }
 }
 
 dependencies {
     compileOnly("io.papermc.paper:paper-api:1.21.11-R0.1-SNAPSHOT")
+    compileOnly('com.github.decentsoftware-eu.decentholograms:decentholograms:2.9.9')
 }
 
 tasks {

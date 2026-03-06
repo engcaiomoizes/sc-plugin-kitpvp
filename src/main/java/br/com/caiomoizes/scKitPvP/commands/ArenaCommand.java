@@ -12,6 +12,8 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.jetbrains.annotations.NotNull;
 
+import java.util.Arrays;
+
 public class ArenaCommand implements CommandExecutor {
     @Override
     public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, @NotNull String @NotNull [] args) {
@@ -22,11 +24,24 @@ public class ArenaCommand implements CommandExecutor {
             return true;
         }
 
-        String arenaName = args[0];
-        Arena arena = ArenaManager.getArena(arenaName);
+        String subCmd = args[0];
+
+        if (subCmd.equalsIgnoreCase("create")) {
+            if (!p.hasPermission("kitpvp.arena.create")) {
+                p.sendMessage(Component.text("Você não tem permissão para criar Arenas!", NamedTextColor.RED));
+                return true;
+            }
+            CreateCommand(
+                    p,
+                    Arrays.copyOfRange(args, 1, args.length)
+            );
+            return true;
+        }
+
+        Arena arena = ArenaManager.getArena(subCmd);
 
         if (arena == null) {
-            p.sendMessage(Component.text("A arena '" + arenaName + "' não existe!", NamedTextColor.RED));
+            p.sendMessage(Component.text("A arena '" + subCmd + "' não existe!", NamedTextColor.RED));
             return true;
         }
 
@@ -39,5 +54,21 @@ public class ArenaCommand implements CommandExecutor {
         p.sendMessage(LegacyComponentSerializer.legacyAmpersand().deserialize("&aTeleportado para " + arena.getDisplayName()));
 
         return true;
+    }
+
+    private void CreateCommand(Player p, String [] args) {
+        if (args.length == 0) {
+            p.sendMessage(Component.text("Informe o nome da Arena!", NamedTextColor.GOLD));
+            return;
+        }
+
+        if (args.length > 1)
+            ArenaManager.createArena(args[0], p.getLocation(), args[1]);
+        else
+            ArenaManager.createArena(args[0], p.getLocation());
+
+        p.sendMessage(LegacyComponentSerializer.legacyAmpersand().deserialize(
+                "&f&lArena &5&l" + args[0] + " &f&lcriada com sucesso!"
+        ));
     }
 }

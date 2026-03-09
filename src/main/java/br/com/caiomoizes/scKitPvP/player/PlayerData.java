@@ -23,6 +23,9 @@ public class PlayerData {
     private int changeCount;
     private long combatTimeout;
 
+    // ------ Atributos Temporários ------
+    private boolean isSpongeJumping;
+
     // Cooldowns
     private final Map<Material, Long> cooldowns = new HashMap<>();
 
@@ -36,6 +39,7 @@ public class PlayerData {
         this.maxKillstreak = 0;
         this.changeCount = 0;
         this.combatTimeout = 0;
+        this.isSpongeJumping = false;
     }
 
     // ------ Getters ------
@@ -64,6 +68,10 @@ public class PlayerData {
         return maxKillstreak;
     }
 
+    public boolean getIsSpongeJumping() {
+        return isSpongeJumping;
+    }
+
     public void setName(String name) {
         this.name = name;
     }
@@ -82,6 +90,10 @@ public class PlayerData {
 
     public void setMaxKillstreak(int maxKillstreak) {
         this.maxKillstreak = maxKillstreak;
+    }
+
+    public void setIsSpongeJumping(boolean isSpongeJumping) {
+        this.isSpongeJumping = isSpongeJumping;
     }
 
     // ------ Lógica de Combate ------
